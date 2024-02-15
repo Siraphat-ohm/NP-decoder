@@ -1,4 +1,4 @@
-keymapping = {
+keymapping_en2th = {
   "1": "ๅ",
   "!": "+",
   "@": "๑",
@@ -89,17 +89,119 @@ keymapping = {
   ".": "ใ",
   ">": "ฬ",
   "/": "ฝ",
-  "?": "ฦ"
+  "?": "ฦ",
+  ",": "ม"
 }
 
-window.onload = function() {
-    document.getElementById('convert').addEventListener('click', function() {
+keymapping_th2en = {
+  "ๅ": "1",
+  "+": "!",
+  "๑": "@",
+  "/": "2",
+  "-": "3",
+  "๒": "#",
+  "ภ": "4",
+  "๓": "$",
+  "ถ": "5",
+  "๔": "%",
+  "ุ": "6",
+  "ู": "^",
+  "ึ": "7",
+  "฿": "&",
+  "ค": "8",
+  "๕": "*",
+  "ต": "9",
+  "๖": "(",
+  "จ": "0",
+  "๗": ")",
+  "ข": "-",
+  "๘": "_",
+  "ช": "=",
+  "๙": "+",
+  "ๆ": "q",
+  "๐": "Q",
+  "ไ": "w",
+  "\\": "W",
+  "ำ": "e",
+  "ฎ": "E",
+  "พ": "r",
+  "ฑ": "R",
+  "ะ": "t",
+  "ธ": "T",
+  "ั": "y",
+  "ํ": "Y",
+  "ี": "u",
+  "๊": "U",
+  "ร": "i",
+  "ณ": "I",
+  "น": "o",
+  "ฯ": "O",
+  "ย": "p",
+  "ญ": "P",
+  "บ": "[",
+  "ฐ": "{",
+  "ล": "]",
+  "|": "}",
+  "ฃ": "\\",
+  "ฅ": "|",
+  "ฟ": "a",
+  "ฤ": "A",
+  "ห": "s",
+  "ฆ": "S",
+  "ก": "d",
+  "ฏ": "D",
+  "ด": "f",
+  "โ": "F",
+  "เ": "g",
+  "ฌ": "G",
+  "้": "h",
+  "็": "H",
+  "่": "j",
+  "๋": "J",
+  "า": "k",
+  "ษ": "K",
+  "ส": "l",
+  "ศ": "L",
+  "ว": ";",
+  "ซ": ":",
+  "ง": "'",
+  ".": "\"",
+  "ผ": "z",
+  "(": "Z",
+  "ป": "x",
+  ")": "X",
+  "แ": "c",
+  "ฉ": "C",
+  "อ": "v",
+  "ฮ": "V",
+  "ิ": "b",
+  "ฺ": "B",
+  "ท": "m",
+  "์": "N",
+  "?": "M",
+  "ฒ": "<",
+  "ใ": ".",
+  "ฬ": ">",
+  "ฝ": "/",
+  "ฦ": "?",
+  "ม": ","
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('input').addEventListener('input', () => {
         let input = document.getElementById('input').value
         let output = ""
         for ( let i = 0; i < input.length; i ++ ) {
-            output += keymapping[input[i]] || input[i]
+            output += keymapping_en2th[input[i]] || input[i]
         }
         document.getElementById('output').value = output
     })
-
-}
+    document.getElementById('output').addEventListener('input', () => {
+        let input = document.getElementById('output').value
+        let output = ""
+        for ( let i = 0; i < input.length; i ++ ) {
+            output += keymapping_th2en[input[i]] || input[i]
+        }
+        document.getElementById('input').value = output
+    })
+})
